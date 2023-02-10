@@ -1,5 +1,7 @@
 # EOAD (Egocentric Outdoor Activity Dataset)
 
+![alt text](https://github.com/maliarabaci/eoad/blob/main/eoad_layout.png?raw=true)
+
 * [Video download] Due to Policy constraints we are not able to directly provide and host videos. However, we thank Tarun Kalluri who is also working on the dataset and willing to share his pre-processed videos that match baseline performances: Google Drive Link. You can use our provided video2frames.py script to split videos into frames. 
 
 * UVO v1.0 contains:
