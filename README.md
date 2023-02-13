@@ -2,46 +2,39 @@
 
 ![alt text](https://github.com/maliarabaci/eoad/blob/main/eoad_layout.png?raw=true)
 
-On the other hand, previous tests demonstrated that incorporating audio information improves activity recognition performance. Therefore, we also decided to choose datasets with natural audio in addition to visual information.
+EOAD is an egocentric activity video datasets mostly including sport activities taken with wearable cameras. It is composed of two modalities: video and audio.  
 
-After eliminating datasets based on the definition of activities and the selected modality types, we realized that only two of them (HUJI \cite{poleg2014temporal,poleg2016compact} and FPVSum \cite{ho2018summarizing}) met the criteria. However, the number of samples and diversity of activities for HUJI sand FPVSum were insufficient. Thus, we merged these datasets and also populated them with new YouTube videos.
+It was also supported with two other egocentric activity datasets: **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)** and **[FPVSum](https://github.com/azuxmioy/fpvsum)**. However, the number of samples and diversity of activities for HUJI sand FPVSum were insufficient. Therefore, we merged these datasets and also populated with new YouTube videos.
 
-* Video selection criteria:
+* The selection of YouTube videos was performed according to several criteria listed below:
 	* The video should not contain overlayed texts
-	* The camera motion should not be compensated
 	* The videos should have natural sound information (no external music)
-	* The activities in videos should be continuous (no cutting the scene or jump in time)
+	* The activities in video clips should be continuous (no cutting the scene or jump in time)
 
-The selection of YouTube videos was performed according to several criteria. Firstly, videos with overlayed text were not accepted. Secondly, we especially selected unstabilized video footage to get raw ego-motion characteristics that give clues about egocentric activities. Moreover, the videos should have natural sound (having no audio montage). Additionally, the videos should be continuous without a scene cut or jump in time. Video samples were trimmed depending on scene changes for long videos (such as *driving*, *scuba\ diving*, and *cycling}). The final dataset consists of video clips, including single actions for each video clip and having natural audio information.
+Video samples were trimmed depending on scene changes for long videos (such as *driving*, *scuba diving*, and *cycling*). As a result, multiple video clips depicting egocentric activities may be included in a video. Therefore, video clips were gathered from manually designated time intervals in videos. The final dataset consists of video clips, including single actions for each video clip and having natural audio information.
 
-The resulting statistics after selecting the video clips are given below:
+* Overall data statistics for EOAD:
+	* **30** activities
+	* **303** distinct videos
+	* **1392** video clips
+	* **2243** minutes labelled videos clips
+	
+The detailed statistics for the selected datasets and the crawled videos clips from YouTube are given below:
 
 * **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)**: 49 distinct videos - 148 video clips for 9 activities (*driving*, *biking*, *motorcycle*, *walking*, *boxing*, *horse riding*, *running*, *skiing*, *stair climbing*)
 * **[FPVSum](https://github.com/azuxmioy/fpvsum)**: 39 distinct videos - 124 video segments for 8 activities (*biking*, *horse riding*, *skiing*, *longboarding*, *rock climbing*, *scuba*, *skateboarding*, *surfing*)
 * **YouTube**: 216 distinct videos - 1120 video clips for 27 activities (*american football*, *basketball*, *bungee jumping*, *driving*, *go-kart*, *horse riding*, *ice hockey*, *jet ski*, *kayaking*, *kitesurfing*, *longboarding*, *motorcycle*, *paintball*, *paragliding*, *rafting*, *rock climbing*, *rowing*, *running*, *sailing*, *scuba diving*, *skateboarding*, *soccer*, *stair climbing*, *surfing*, *tennis*, *volleyball*, *walking*)
 
-Table \ref{table:eoad_detailed} provides a comprehensive listing of the overall number of videos and clips for each activity, as well as the total duration of videos. Multiple video clips depicting egocentric activities may be included in a video. Therefore, video clips were gathered from manually designated time intervals in videos, and each video clip contains only a single activity. As a result, we did not use any video segmentation technique to localize activities in time. 		
-The video clips used for training, validation and test sets for each activity are listed in Table \ref{table:dataset_split}. As mentioned before, multiple video clips may belong to a video because of trimming it for some reasons (i.e., scene cut, temporary overlayed text on videos, or video parts unrelated to activities). In addition, we know that each video clips contain single activity. Therefore, we did not apply any video segmentation method to localize activities.
+The video clips used for training, validation and test sets for each activity are listed in *Table 1*. Multiple video clips may belong to a single video because of trimming it for some reasons (i.e., scene cut, temporary overlayed text on videos, or video parts unrelated to activities). 
 
-The minimum number of videos for each activity was selected as 8, and the video samples in the experimental setup were divided as 50\%, 25\%, and 25\% for training (4 videos), validation (2 videos), and test (2 videos), respectively. On the other hand,  videos were split according to the raw video footage to prevent the mixing of similar video clips (having the same actors and scenes) into training, validation, and test sets simultaneously. Therefore, we ensured that the video clips trimmed from the same videos were split together into training, validation, or test sets to make a fair comparison. 
+While splitting dataset, the minimum number of videos for each activity was selected as 8. Additionally, the video samples were divided as 50\%, 25\%, and 25\% for training (minimum 4 videos), validation (minimum 2 videos), and test (minimum 2 videos), respectively. On the other hand,  videos were split according to the raw video footage to prevent the mixing of similar video clips (having the same actors and scenes) into training, validation, and test sets. Therefore, we ensured that the video clips trimmed from the same videos were split together into training, validation, or test sets to satisfy a fair comparison. 
 
-Some activities have continuity throughout the video, such as *scuba*, *longboarding*, or *riding horse} which also have an equal number of video segments with the number of videos. However, some activities, such as skating, occurred in a short time, making the number of video segments higher than the others. As a result, the number of video clips for training, validation, and test sets was highly imbalanced for activities (i.e., *jetski} and *rafting} have 4; however, *soccer} has 99 video clips for training). 
+Some activities have continuity throughout the video, such as *scuba*, *longboarding*, or *riding horse* which also have an equal number of video segments with the number of videos. However, some activities, such as skating, occurred in a short time, making the number of video segments higher than the others. As a result, the number of video clips for training, validation, and test sets was highly imbalanced for the selected activities (i.e., *jetski* and *rafting* have 4; however, *soccer* has 99 video clips for training). 
 
-**Modalities**: Video, Audio
+<p align="center"> <strong> Table 1 - Dataset splitting for EOAD </strong> </p>
 
-* EOAD data statistics:
-	* **30** activities
-	* **303** distinct videos
-	* **1392** video clips
-	* **2243** minutes labelled videos clips
-	* **740** video clips for training
-	* **452** video clips for validation
-	* **200** video clips for test
-
-**Dataset splitting for EOAD**
-
-| | | **Train** || **Validation** || **Test** ||                     
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| | |**Train** ||**Validation** ||**Test** ||
+| --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | | **Action Label** | **#Clips** | **Total   Duration** | **#Clips** | **Total   Duration** | **#Clips** | **Total   Duration** |
 | | **AmericanFootball** | 34 | 00:06:09 | 36 | 00:05:03 | 9 | 00:01:20 |
 | | **Basketball** | 43 | 01:13:22 | 19 | 00:08:13 | 10 | 00:28:46 | 
@@ -81,9 +74,6 @@ Some activities have continuity throughout the video, such as *scuba*, *longboar
 	* ffmpeg-python
 
 * [Video download] Due to Policy constraints we are not able to directly provide and host videos. However, we thank Tarun Kalluri who is also working on the dataset and willing to share his pre-processed videos that match baseline performances: Google Drive Link. You can use our provided video2frames.py script to split videos into frames. 
-
-
-Imbalanced dataset
 
 ** References **
 Zenodo DOI
