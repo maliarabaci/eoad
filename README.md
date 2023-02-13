@@ -27,11 +27,22 @@ The minimum number of videos for each activity was selected as 8, and the video 
 
 Some activities have continuity throughout the video, such as *scuba*, *longboarding*, or *riding horse} which also have an equal number of video segments with the number of videos. However, some activities, such as skating, occurred in a short time, making the number of video segments higher than the others. As a result, the number of video clips for training, validation, and test sets was highly imbalanced for activities (i.e., *jetski} and *rafting} have 4; however, *soccer} has 99 video clips for training). 
 
+**Modalities**: Video, Audio
+
+* EOAD data statistics:
+	* **30** activities
+	* **303** distinct videos
+	* **1392** video clips
+	* **2243** minutes labelled videos clips
+	* **740** video clips for training
+	* **452** video clips for validation
+	* **200** video clips for test
+
 **Dataset splitting for EOAD**
 
 | | | **Train** || **Validation** || **Test** ||                     
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| | **Action Label** | **#Segments** | **Total   Duration** | **#Segments** | **Total   Duration** | **#Segments** | **Total   Duration** |
+| | **Action Label** | **#Clips** | **Total   Duration** | **#Clips** | **Total   Duration** | **#Clips** | **Total   Duration** |
 | | **AmericanFootball** | 34 | 00:06:09 | 36 | 00:05:03 | 9 | 00:01:20 |
 | | **Basketball** | 43 | 01:13:22 | 19 | 00:08:13 | 10 | 00:28:46 | 
 | | **Biking** | 9 | 01:58:01 | 6 | 00:32:22 | 11 | 00:36:16 | 
@@ -71,27 +82,8 @@ Some activities have continuity throughout the video, such as *scuba*, *longboar
 
 * [Video download] Due to Policy constraints we are not able to directly provide and host videos. However, we thank Tarun Kalluri who is also working on the dataset and willing to share his pre-processed videos that match baseline performances: Google Drive Link. You can use our provided video2frames.py script to split videos into frames. 
 
-* UVO v1.0 contains:
 
-   * Sparse Annotation (UVO-Sparse 1.0): 
-
-   * Compare to v0.5, we add the downsampled version of dense annotations of v1.0. The downsampled dense split contains two classes: "object" for COCO categories and "other" for non-COCO categories, which can be used to test generalization ability.
-
-   * 5641 videos for training (5138 sparsely annotated at 1fps, 503 from video-dense) 
-
-   * 2708 videos for validation (2452 sparsely annotated at 1fps, 256 from video-dense)
-
-   * 2879 (2623 sparsely annotated, 256 from video-dense) videos for test, used for Challenge
-
-   * Interpolation for 30fps is provided (for sparsely annotated splits)
-
-   * Dense Annotation (UVO-Dense): 503 videos for training and 256 videos for validation, annotated at 30fps
-
-   * 258 videos for test, used for Challenge (video meta data to be released)
-
-   * COCO taxonomy labels for all objects (marked as "other" if not in COCO categories)
-
-* For instructions and baselines on the dataset, we refer to README.md in the shared folder.
+Imbalanced dataset
 
 ** References **
 
