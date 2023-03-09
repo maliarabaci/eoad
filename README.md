@@ -70,19 +70,20 @@ Some activities have continuity throughout the video, such as *scuba*, *longboar
 | **Total** | 30 | 740 |  20:22:37 | 452 | 09:20:23 | 200 | 08:00:08 |
 
 **How to get the videos**
+
 * Prerequisites
 	* pytube
 	* ffmpeg-python
 
-After installing *pytube* and *FFMpeg*, you should firstly download raw videos using *download_videos.py*, and later trim the raw videos in to video clips with "*videos2clips.py*. We introduce sample usages of these two scripts below:
+Due to Policy constraints we are not able to directly provide and host videos. However, after installing *pytube* and *FFMpeg* packages, you may firstly download raw videos using "*download_videos.py*", and later trim them in to video clips using "*rawvideo2clips.py*". Sample usages of the scripts are given below:
 
-* Download raw videos:
-python3 download_videos.py 
+* **Download raw videos:**
+python3 download_videos.py --metadata-file=video_clips_info.csv --download-folder=raw_videos 
 
-* Trim raw videos into clips:
-python3 videos2clips.py
+* **Trim raw videos into clips:**
+python3 rawvideo2clips.py --metadata-file=video_clips_info.csv --video-folder=raw_videos --output-folder=video_clips
 
-* [Video download] Due to Policy constraints we are not able to directly provide and host videos. However, we thank Tarun Kalluri who is also working on the dataset and willing to share his pre-processed videos that match baseline performances: Google Drive Link. You can use our provided video2frames.py script to split videos into frames. 
+* [Video download]  
 
 ** References **
 Zenodo DOI
