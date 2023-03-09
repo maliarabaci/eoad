@@ -82,8 +82,3 @@ python3 download_videos.py --metadata-file=video_clips_info.csv --download-folde
 
 * **Trim raw videos into clips:**
 python3 rawvideo2clips.py --metadata-file=video_clips_info.csv --video-folder=raw_videos --output-folder=video_clips
-
-* [Video download]  
-
-** References **
-Zenodo DOI
