@@ -4,7 +4,7 @@
 
 EOAD is a collection of videos captured by wearable cameras, mostly of sports activities. It contains both visual and audio modalities.
 
-It was initiated by the **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)** and **[FPVSum](https://github.com/azuxmioy/fpvsum)** egocentric activity datasets. However, the number of samples and diversity of activities for HUJI sand FPVSum were insufficient. Therefore, we combined these datasets and populated them with new YouTube videos.
+It was initiated by the **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)** and **[FPVSum](https://github.com/azuxmioy/fpvsum)** egocentric activity datasets. However, the number of samples and diversity of activities for HUJI and FPVSum were insufficient. Therefore, we combined these datasets and populated them with new YouTube videos.
 
 * The selection of videos was based on the following criteria:
 	* The videos should not include text overlays.
