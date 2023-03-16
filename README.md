@@ -4,13 +4,12 @@
 
 EOAD is a collection of videos captured by wearable cameras, mostly of sports activities. It contains both visual and audio modalities.
 
-It was initiated by the **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)** and **[FPVSum](https://github.com/azuxmioy/fpvsum)** egocentric activity datasets. However, the number of samples and diversity of activities for HUJI and FPVSum were insufficient. Therefore, we combined these datasets and populated them with new YouTube videos.
-
+It was initiated by the **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)** and **[FPVSum](https://github.com/azuxmioy/fpvsum)** egocentric activity datasets. However, the number of samples and diversity of activities for HUJI sand FPVSum were insufficient. Therefore, we combined these datasets and populated them with new YouTube videos.
 
 * The selection of videos was based on the following criteria:
-	* The videos should not include text overlays.
+	* The videos should not include text overlays.
 	* The videos should contain natural sound (no external music)
-	* The actions in videos should be continuous (no cutting the scene or jumping in time)
+	* The actions in videos should be continuous (no cutting the scene or jumping in time)
 
 Video samples were trimmed depending on scene changes for long videos (such as *driving*, *scuba diving*, and *cycling*). As a result, a video may have several clips depicting egocentric actions. Hence, video clips were extracted from carefully defined time intervals within videos. The final dataset includes video clips with a single action and natural audio information.
 
@@ -18,19 +17,19 @@ Video samples were trimmed depending on scene changes for long videos (such as *
 	* **30** activities
 	* **303** distinct videos
 	* **1392** video clips
-	* **2243** minutes labelled videos clips
-	
+	* **2243** minutes labeled videos clips
+
 The detailed statistics for the selected datasets and the crawled videos clips from YouTube are given below:
 
 * **[HUJI](https://www.vision.huji.ac.il/egoseg/videos/dataset.html)**: 49 distinct videos - 148 video clips for 9 activities (*driving*, *biking*, *motorcycle*, *walking*, *boxing*, *horse riding*, *running*, *skiing*, *stair climbing*)
 * **[FPVSum](https://github.com/azuxmioy/fpvsum)**: 39 distinct videos - 124 video segments for 8 activities (*biking*, *horse riding*, *skiing*, *longboarding*, *rock climbing*, *scuba*, *skateboarding*, *surfing*)
 * **YouTube**: 216 distinct videos - 1120 video clips for 27 activities (*american football*, *basketball*, *bungee jumping*, *driving*, *go-kart*, *horse riding*, *ice hockey*, *jet ski*, *kayaking*, *kitesurfing*, *longboarding*, *motorcycle*, *paintball*, *paragliding*, *rafting*, *rock climbing*, *rowing*, *running*, *sailing*, *scuba diving*, *skateboarding*, *soccer*, *stair climbing*, *surfing*, *tennis*, *volleyball*, *walking*)
 
-The video clips used for training, validation, and test sets for each activity are listed in *Table 1*. Multiple video clips may belong to a single video because of trimming it for some reasons (i.e., scene cut, temporary overlayed text on videos, or video parts unrelated to activities). 
+The video clips used for training, validation and test sets for each activity are listed in *Table 1*. Multiple video clips may belong to a single video because of trimming it for some reasons (i.e., scene cut, temporary overlayed text on videos, or video parts unrelated to activities).
 
-While splitting the dataset, the minimum number of videos for each activity was selected as 8. Additionally, the video samples were divided as 50\%, 25\%, and 25\% for training (minimum four videos), validation (minimum two videos), and testing (minimum two videos), respectively. On the other hand,  videos were split according to the raw video footage to prevent the mixing of similar video clips (having the same actors and scenes) into training, validation, and test sets. Therefore, we ensured that the video clips trimmed from the same videos were split together into training, validation, or test sets to satisfy a fair comparison. 
+While splitting the dataset, the minimum number of videos for each activity was selected as 8. Additionally, the video samples were divided as 50\%, 25\%, and 25\% for training (minimum four videos), validation (minimum two videos), and testing (minimum two videos), respectively. On the other hand, videos were split according to the raw video footage to prevent the mixing of similar video clips (having the same actors and scenes) into training, validation, and test sets. Therefore, we ensured that the video clips trimmed from the same videos were split together into training, validation, or test sets to satisfy a fair comparison.
 
-Some activities have continuity throughout the video, such as *scuba*, *longboarding*, or *riding horse* which also have an equal number of video segments with the number of videos. However, some activities, such as skating, occurred in a short time, making the number of video segments higher than the others. As a result, the number of video clips for training, validation, and test sets was highly imbalanced for the selected activities (i.e., *jet ski* and *rafting* have 4; however, *soccer* has 99 video clips for training). 
+Some activities have continuity throughout the video, such as *scuba*, *longboarding*, or *riding horse*, which also have an equal number of video segments with the number of videos. However, some activities, such as skating, occurred in a short time, making the number of video segments higher than the others. As a result, the number of video clips for training, validation, and test sets was highly imbalanced for the selected activities (i.e., *jet ski* and *rafting* have 4; however, *soccer* has 99 video clips for training).
 
 <p align="center"> <strong> Table 1 - Dataset splitting for EOAD </strong> </p>
 
@@ -75,10 +74,10 @@ Some activities have continuity throughout the video, such as *scuba*, *longboar
 	* pytube
 	* ffmpeg-python
 
-Due to Policy constraints we are not able to directly provide and host videos. However, after installing *pytube* and *FFMpeg* packages, you may firstly download raw videos using "*download_videos.py*", and later trim them in to video clips using "*rawvideo2clips.py*". Sample usages of the scripts are given below:
+Due to Policy constraints, we are not able to directly provide and host videos. However, after installing *pytube* and *FFMpeg* packages, you may first download raw videos using "*download_videos.py*", and later trim them into video clips using "*rawvideo2clips.py*". Sample usages of the scripts are given below:
 
 * **Download raw videos:**
-python3 download_videos.py --metadata-file=video_clips_info.csv --download-folder=raw_videos 
+python3 download_videos.py --metadata-file=video_clips_info.csv --download-folder=raw_videos
 
 * **Trim raw videos into clips:**
 python3 rawvideo2clips.py --metadata-file=video_clips_info.csv --video-folder=raw_videos --output-folder=video_clips
